@@ -11,8 +11,12 @@ def concatenar_vertical(imagenes):
   min_img_shape = sorted([(np.sum(i.size), i.size) for i in imagenes])[0][1]
   return np.vstack(list((np.asarray(i.resize(min_img_shape, Image.ANTIALIAS)) for i in imagenes)))
 
-imagen1 = leer_imagen('1.jpg')
-imagen2 = leer_imagen('2.jpg')
 
-escribir_imagen('concatenada-vertical.jpg', concatenar_vertical([imagen1, imagen2]))    
-escribir_imagen('concatenada-horizontal.jpg', concatenar_horizontal([imagen1, imagen2]))    
+
+if __name__ == '__main__':
+    main()
+    imagen1 = leer_imagen('1.jpg')
+    imagen2 = leer_imagen('2.jpg')
+
+    escribir_imagen('concatenada-vertical.jpg', concatenar_vertical([imagen1, imagen2]))    
+    escribir_imagen('concatenada-horizontal.jpg', concatenar_horizontal([imagen1, imagen2]))    
